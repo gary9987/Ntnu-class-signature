@@ -1,0 +1,1 @@
+Ntnu-class-signature
