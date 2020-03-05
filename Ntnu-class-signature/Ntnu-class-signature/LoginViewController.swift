@@ -9,7 +9,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import Alamofire
 
 class LoginViewController: UIViewController {
 
@@ -19,12 +18,16 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let model = LoginViewMode()
 
         loginButton.rx.tap.subscribe(onNext: { [] in
             
-            
+            model.login()
             
             }).disposed(by: disposeBag)
+        
+       
         // Do any additional setup after loading the view.
     }
     

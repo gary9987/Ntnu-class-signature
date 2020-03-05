@@ -15,6 +15,9 @@
 		6F9D834E241130C100EC6413 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F9D834D241130C100EC6413 /* Assets.xcassets */; };
 		6F9D8351241130C100EC6413 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F9D834F241130C100EC6413 /* LaunchScreen.storyboard */; };
 		6F9D8359241132C800EC6413 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9D8358241132C800EC6413 /* LoginViewController.swift */; };
+		6F9D835B241135D900EC6413 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9D835A241135D900EC6413 /* LoginViewModel.swift */; };
+		6F9D835D2411584300EC6413 /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9D835C2411584300EC6413 /* SignViewController.swift */; };
+		6F9D835F2411585200EC6413 /* SignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9D835E2411585200EC6413 /* SignViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		6F9D8350241130C100EC6413 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6F9D8352241130C100EC6413 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6F9D8358241132C800EC6413 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		6F9D835A241135D900EC6413 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		6F9D835C2411584300EC6413 /* SignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewController.swift; sourceTree = "<group>"; };
+		6F9D835E2411585200EC6413 /* SignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewModel.swift; sourceTree = "<group>"; };
 		947C7184E80FFBC0327E01F7 /* Pods-Ntnu-class-signature.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ntnu-class-signature.debug.xcconfig"; path = "Target Support Files/Pods-Ntnu-class-signature/Pods-Ntnu-class-signature.debug.xcconfig"; sourceTree = "<group>"; };
 		975D13F90EC7EA2017F69FAA /* Pods-Ntnu-class-signature.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ntnu-class-signature.release.xcconfig"; path = "Target Support Files/Pods-Ntnu-class-signature/Pods-Ntnu-class-signature.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,6 +75,9 @@
 				6F9D8346241130BF00EC6413 /* SceneDelegate.swift */,
 				6F9D8348241130BF00EC6413 /* ViewController.swift */,
 				6F9D8358241132C800EC6413 /* LoginViewController.swift */,
+				6F9D835A241135D900EC6413 /* LoginViewModel.swift */,
+				6F9D835C2411584300EC6413 /* SignViewController.swift */,
+				6F9D835E2411585200EC6413 /* SignViewModel.swift */,
 				6F9D834A241130BF00EC6413 /* Main.storyboard */,
 				6F9D834D241130C100EC6413 /* Assets.xcassets */,
 				6F9D834F241130C100EC6413 /* LaunchScreen.storyboard */,
@@ -209,6 +218,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F9D835B241135D900EC6413 /* LoginViewModel.swift in Sources */,
+				6F9D835F2411585200EC6413 /* SignViewModel.swift in Sources */,
+				6F9D835D2411584300EC6413 /* SignViewController.swift in Sources */,
 				6F9D8359241132C800EC6413 /* LoginViewController.swift in Sources */,
 				6F9D8349241130BF00EC6413 /* ViewController.swift in Sources */,
 				6F9D8345241130BF00EC6413 /* AppDelegate.swift in Sources */,
