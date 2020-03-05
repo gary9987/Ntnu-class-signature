@@ -1,0 +1,6 @@
+framework module Pods_Ntnu_class_signature {
+  umbrella header "Pods-Ntnu-class-signature-umbrella.h"
+
+  export *
+  module * { export * }
+}
