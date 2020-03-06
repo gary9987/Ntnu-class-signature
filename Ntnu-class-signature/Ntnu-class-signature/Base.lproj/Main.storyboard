@@ -18,9 +18,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RB8-Cx-HQj">
                                 <rect key="frame" x="190" y="433" width="34" height="30"/>
                                 <state key="normal" title="login"/>
-                                <connections>
-                                    <segue destination="jja-BK-ZA2" kind="show" id="Qna-FW-1pI"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="student ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1B-qo-9r9">
                                 <rect key="frame" x="63" y="263" width="79" height="21"/>
@@ -50,7 +47,7 @@
                                     <constraint firstAttribute="height" constant="34" id="hKW-Rk-6AW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -74,6 +71,7 @@
                         <outlet property="idTextField" destination="0Qy-tQ-fam" id="Grw-r0-Oem"/>
                         <outlet property="loginButton" destination="RB8-Cx-HQj" id="fKm-A4-T23"/>
                         <outlet property="pwdTextField" destination="K59-Cb-KyH" id="tSb-Qt-NZj"/>
+                        <segue destination="jja-BK-ZA2" kind="show" identifier="signView" id="SQJ-Pr-3Aj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

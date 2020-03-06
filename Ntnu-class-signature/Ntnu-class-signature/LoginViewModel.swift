@@ -10,16 +10,19 @@ import Foundation
 import RxSwift
 import RxCocoa
 import Alamofire
+import SwiftyJSON
 
 class LoginViewMode {
     
     let loginAPI = "http://iportalws.ntnu.edu.tw/login.do"
     var id: String = ""
     var password: String = ""
+    var errorMsg:String = ""
     
     
-    
-    func login() {
+    func login() -> PublishSubject<Bool> {
+        
+        let ret = PublishSubject<Bool>()
         
         let headers: HTTPHeaders = [
             "Content-Type": "application/x-www-form-urlencoded",
@@ -50,16 +53,32 @@ class LoginViewMode {
                 
                 if(response.response?.statusCode == 200) {
                     debugPrint(response)
-                    debugPrint("Success")
+                    
+                    do{
+                        let json = try JSON(data: response.data!)
+                        if(json["success"].boolValue == true){
+                            ret.onNext(true)
+                        }
+                        else{
+                            self.errorMsg = json["errorMsg"].stringValue
+                            ret.onNext(false)
+                        }
+                        
+                    }
+                    catch{
+                        ret.onNext(false)
+                    }
                     
                 }
                 else{
                     debugPrint("Failure")
+                    ret.onNext(false)
                 }
+                
                 
             }
         }
-        
+        return ret
     }
     
 }

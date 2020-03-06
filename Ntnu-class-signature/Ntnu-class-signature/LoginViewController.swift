@@ -21,11 +21,25 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         let model = LoginViewMode()
 
         loginButton.rx.tap.subscribe(onNext: { [] in
             
-            model.login()
+            model.login().asObserver().subscribe(onNext: {result in
+                
+                if(result == true){
+                    self.performSegue(withIdentifier: "signView", sender: Any?.self)
+                }
+                else{
+                    let AlertController = UIAlertController(title: NSLocalizedString("Failure", comment: ""), message: NSLocalizedString(model.errorMsg, comment: ""), preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default){(_) in self.navigationController?.popViewController(animated: true)}
+                    AlertController.addAction(okAction)
+                    self.present(AlertController, animated: true, completion: nil)
+                }
+                
+            }).disposed(by: self.disposeBag)
             
             }).disposed(by: disposeBag)
         
@@ -37,6 +51,26 @@ class LoginViewController: UIViewController {
             model.password = text!
         }).disposed(by: disposeBag)
         // Do any additional setup after loading the view.
+        
+        if(LoginService.getInstance.isLogin()){
+            
+            idTextField.text = LoginService.getInstance.getID()
+            pwdTextField.text = LoginService.getInstance.getPassword()
+            model.login().asObserver().subscribe(onNext: {result in
+                
+                if(result == true){
+                    self.performSegue(withIdentifier: "signView", sender: Any?.self)
+                }
+                else{
+                    let AlertController = UIAlertController(title: NSLocalizedString("Failure", comment: ""), message: NSLocalizedString(model.errorMsg, comment: ""), preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default){(_) in self.navigationController?.popViewController(animated: true)}
+                    AlertController.addAction(okAction)
+                    self.present(AlertController, animated: true, completion: nil)
+                }
+                
+            }).disposed(by: self.disposeBag)
+            
+        }
     }
     
     
