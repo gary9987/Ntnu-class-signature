@@ -40,6 +40,17 @@ class LoginService {
             realm.add(info, update: .all)
         }
         
+    }
+    
+    func logout(){
+        
+        let realm = try! Realm(fileURL: LoginService.url)
+        
+        let info = LoginInfo(id: "", pwd: "", status: false)
+        
+        try! realm.write {
+            realm.add(info, update: .all)
+        }
         
     }
     
@@ -74,7 +85,7 @@ class LoginInfo: Object {
     internal required init(){
         
     }
-    @objc dynamic var uuid = UUID().uuidString // key(設置key可以加快查詢的速度)
+    @objc dynamic var uuid = "CFAF8EBB-CF9A-4999-ACA8-F64A7D58424B"
     override static func primaryKey() -> String? {
         return "uuid"
     }

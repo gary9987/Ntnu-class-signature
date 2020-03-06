@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var pwdTextField: UITextField!
+    @IBOutlet weak var logoutButton: UIButton!
     
     let disposeBag = DisposeBag()
     
@@ -50,16 +51,31 @@ class LoginViewController: UIViewController {
         pwdTextField.rx.textInput.text.subscribe(onNext: { text in
             model.password = text!
         }).disposed(by: disposeBag)
-        // Do any additional setup after loading the view.
+        
+        logoutButton.rx.tap.subscribe(onNext : { _ in
+            
+            LoginService.getInstance.logout()
+            model.checkLoginStatus()
+            
+            }).disposed(by: disposeBag)
+        
+        model.loginStatus.bind(to: logoutButton.rx.isEnabled).disposed(by: disposeBag)
+        model.loginStatus.map{!$0}.bind(to: loginButton.rx.isEnabled).disposed(by: disposeBag)
+        
         
         if(LoginService.getInstance.isLogin()){
             
-            idTextField.text = LoginService.getInstance.getID()
-            pwdTextField.text = LoginService.getInstance.getPassword()
+            idTextField.text = LoginService.getInstance.getID()!
+            pwdTextField.text = LoginService.getInstance.getPassword()!
+            
+            model.id = LoginService.getInstance.getID()!
+            model.password = LoginService.getInstance.getPassword()!
+            
             model.login().asObserver().subscribe(onNext: {result in
                 
                 if(result == true){
                     self.performSegue(withIdentifier: "signView", sender: Any?.self)
+                    model.checkLoginStatus()
                 }
                 else{
                     let AlertController = UIAlertController(title: NSLocalizedString("Failure", comment: ""), message: NSLocalizedString(model.errorMsg, comment: ""), preferredStyle: .alert)
@@ -71,6 +87,8 @@ class LoginViewController: UIViewController {
             }).disposed(by: self.disposeBag)
             
         }
+        
+        
     }
     
     

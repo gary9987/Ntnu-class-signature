@@ -18,7 +18,18 @@ class LoginViewMode {
     var id: String = ""
     var password: String = ""
     var errorMsg:String = ""
+    let loginStatus = PublishSubject<Bool>()
     
+    func checkLoginStatus() {
+        
+        if(LoginService.getInstance.isLogin()){
+            loginStatus.onNext(true)
+        }
+        else{
+            loginStatus.onNext(false)
+        }
+        
+    }
     
     func login() -> PublishSubject<Bool> {
         
@@ -58,6 +69,7 @@ class LoginViewMode {
                         let json = try JSON(data: response.data!)
                         if(json["success"].boolValue == true){
                             ret.onNext(true)
+                            LoginService.getInstance.login(id: self.id, pwd: self.password, status: true)
                         }
                         else{
                             self.errorMsg = json["errorMsg"].stringValue

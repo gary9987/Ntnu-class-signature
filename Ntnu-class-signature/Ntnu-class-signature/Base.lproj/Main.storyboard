@@ -49,6 +49,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="an7-4Q-Vtt">
+                                <rect key="frame" x="183" y="482" width="48" height="30"/>
+                                <state key="normal" title="Logout"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -58,8 +62,10 @@
                             <constraint firstItem="DRY-P5-EbO" firstAttribute="trailing" secondItem="R1B-qo-9r9" secondAttribute="trailing" id="Qhe-ls-bgt"/>
                             <constraint firstItem="0Qy-tQ-fam" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="48" id="WcG-q2-TmO"/>
                             <constraint firstItem="0Qy-tQ-fam" firstAttribute="baseline" secondItem="R1B-qo-9r9" secondAttribute="baseline" id="ZXk-vA-daK"/>
+                            <constraint firstItem="an7-4Q-Vtt" firstAttribute="centerX" secondItem="RB8-Cx-HQj" secondAttribute="centerX" id="cOo-EF-URg"/>
                             <constraint firstItem="K59-Cb-KyH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="48" id="dVa-PA-TfP"/>
                             <constraint firstItem="0Qy-tQ-fam" firstAttribute="leading" secondItem="R1B-qo-9r9" secondAttribute="trailing" constant="18" id="diw-tQ-IG6"/>
+                            <constraint firstItem="an7-4Q-Vtt" firstAttribute="top" secondItem="RB8-Cx-HQj" secondAttribute="bottom" constant="19" id="eoF-3T-xvj"/>
                             <constraint firstItem="K59-Cb-KyH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="48" id="hMX-8l-eFx"/>
                             <constraint firstItem="K59-Cb-KyH" firstAttribute="baseline" secondItem="DRY-P5-EbO" secondAttribute="baseline" id="hxO-nU-twq"/>
                             <constraint firstItem="K59-Cb-KyH" firstAttribute="top" secondItem="0Qy-tQ-fam" secondAttribute="bottom" constant="23" id="qoa-3e-fAA"/>
@@ -70,6 +76,7 @@
                     <connections>
                         <outlet property="idTextField" destination="0Qy-tQ-fam" id="Grw-r0-Oem"/>
                         <outlet property="loginButton" destination="RB8-Cx-HQj" id="fKm-A4-T23"/>
+                        <outlet property="logoutButton" destination="an7-4Q-Vtt" id="e1T-mS-tU9"/>
                         <outlet property="pwdTextField" destination="K59-Cb-KyH" id="tSb-Qt-NZj"/>
                         <segue destination="jja-BK-ZA2" kind="show" identifier="signView" id="SQJ-Pr-3Aj"/>
                     </connections>
