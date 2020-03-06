@@ -13,6 +13,8 @@ import RxCocoa
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var idTextField: UITextField!
+    @IBOutlet weak var pwdTextField: UITextField!
     
     let disposeBag = DisposeBag()
     
@@ -27,7 +29,13 @@ class LoginViewController: UIViewController {
             
             }).disposed(by: disposeBag)
         
-       
+        idTextField.rx.textInput.text.subscribe(onNext: { text in
+            model.id = text!
+            }).disposed(by: disposeBag)
+        
+        pwdTextField.rx.textInput.text.subscribe(onNext: { text in
+            model.password = text!
+        }).disposed(by: disposeBag)
         // Do any additional setup after loading the view.
     }
     

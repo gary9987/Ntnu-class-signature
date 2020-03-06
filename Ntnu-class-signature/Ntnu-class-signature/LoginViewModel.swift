@@ -14,6 +14,10 @@ import Alamofire
 class LoginViewMode {
     
     let loginAPI = "http://iportalws.ntnu.edu.tw/login.do"
+    var id: String = ""
+    var password: String = ""
+    
+    
     
     func login() {
         
@@ -33,8 +37,8 @@ class LoginViewMode {
             debugPrint(res)
             
             let parameters = [
-                "muid": "40647027s",
-                "mpassword": "gary0206",
+                "muid": self.id,
+                "mpassword": self.password,
                 "forceMobile": "app",
                 "deviceType": "ios",
                 "deviceID": "41CDDB1F-8D79-4D32-BB84-3470F0FB07A7",
